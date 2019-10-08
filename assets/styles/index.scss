@@ -4,11 +4,8 @@ $theme-colors: (
   // 'warning': #fadd5c,
   // 'light': #fff,
 );
-
 $zindex-popover: 1060 !default;
-
 @import '~bootstrap/scss/bootstrap';
-
 $green: #b0cc27;
 
 img {
@@ -26,15 +23,17 @@ div {
 
 h1 {
   color: $green;
-  text-shadow:
-     2px 2px 4px #222629;
+  text-shadow: 2px 2px 4px #222629;
 }
-
 $zindex-popover: 1060 !default;
 
-.get-files-message {
+.please-upload-div {
   color: $green;
   text-align: center;
+}
+
+.please-upload-div a {
+  color: #fff;
 }
 
 .update {
@@ -48,17 +47,15 @@ $zindex-popover: 1060 !default;
     font-weight: bold;
   }
 }
-
 // <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 //   <a class="navbar-brand" href="#">photonix</a>
-
 // .navbar-brand a {
 //   color: $green;
 // }
 
 .navbar-dark .navbar-brand,
 .navbar-dark .navbar-text {
-    color: $green;
+  color: $green;
 }
 
 .sign-in-div {
@@ -73,17 +70,17 @@ $zindex-popover: 1060 !default;
 }
 
 .btn {
-  margin: .5em;
+  margin: 0.5em;
   box-shadow: 2px 2px 4px #222629;
 }
 
 .btn:hover {
-  margin: .5em;
+  margin: 0.5em;
   // box-shadow: 2px 2px 4px #222629;
 }
 
 .border {
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .display {
@@ -92,7 +89,7 @@ $zindex-popover: 1060 !default;
 
 .card {
   width: 35%;
-  padding: .5em;
+  padding: 0.5em;
   background-color: rgba(123, 123, 123, .5);
 }
 
@@ -101,7 +98,7 @@ $zindex-popover: 1060 !default;
 }
 
 .input {
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .thumbnail {
@@ -115,60 +112,62 @@ $zindex-popover: 1060 !default;
   background-position: center center;
   color: transparent;
   height: 100%;
-  left: 0px;
+  left: 0;
   opacity: 0;
   position: absolute;
-  top: 0px;
+  top: 0;
   width: 100%;
   z-index: 0;
 }
 
 .crossfade > figure:nth-child(1) {
-background-color: black;
-  background-image: url('https://i.imgur.com/luTfqIo.jpg'); }
+  background-color: black;
+  background-image: url("https://i.imgur.com/luTfqIo.jpg");
+}
 
 .crossfade > figure:nth-child(2) {
   animation-delay: 6s;
-  background-image: url('https://i.imgur.com/mUKU2A6.jpg');
+  background-image: url("https://i.imgur.com/mUKU2A6.jpg");
 }
 
 .crossfade > figure:nth-child(3) {
   animation-delay: 12s;
-  background-image: url('https://i.imgur.com/BG3MDfx.jpg');
+  background-image: url("https://i.imgur.com/BG3MDfx.jpg");
 }
 
 .crossfade > figure:nth-child(4) {
   animation-delay: 18s;
-  background-image: url('https://i.imgur.com/9t7Hx3e.jpg');
+  background-image: url("https://i.imgur.com/9t7Hx3e.jpg");
 }
 
 .crossfade > figure:nth-child(5) {
   animation-delay: 24s;
-  background-image: url('https://i.imgur.com/rPN94xo.jpg');
+  background-image: url("https://i.imgur.com/rPN94xo.jpg");
 }
-
 
 .update {
   z-index: $zindex-popover;
 }
+@keyframes imageAnimation {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
 
+  8% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
 
-@keyframes
-imageAnimation {  0% {
- animation-timing-function: ease-in;
- opacity: 0;
-}
- 8% {
- animation-timing-function: ease-out;
- opacity: 1;
-}
- 17% {
- opacity: 1
-}
- 25% {
- opacity: 0
-}
- 100% {
- opacity: 0
-}
+  17% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

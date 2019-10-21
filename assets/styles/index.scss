@@ -8,8 +8,17 @@ $zindex-popover: 1060 !default;
 @import '~bootstrap/scss/bootstrap';
 $green: #b0cc27;
 
-img {
-  max-height: 400px;
+
+// .picture-item::after {
+//   content: '';
+//   display: inline-block;
+//   clear: both;
+// }
+
+.picture-item  {
+  width: 320px;
+  height: auto;
+  display: block
 }
 
 body {
@@ -40,13 +49,13 @@ $zindex-popover: 1060 !default;
   z-index: $zindex-popover;
 }
 
-.col-sm-4 {
-  // max-height: 30em;
-  .user-email {
-    font-size: 12px;
-    font-weight: bold;
-  }
-}
+// .col-sm-4 {
+//   // max-height: 30em;
+//   .user-email {
+//     font-size: 12px;
+//     font-weight: bold;
+//   }
+// }
 // <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 //   <a class="navbar-brand" href="#">photonix</a>
 // .navbar-brand a {
@@ -148,6 +157,7 @@ $zindex-popover: 1060 !default;
 .update {
   z-index: $zindex-popover;
 }
+
 @keyframes imageAnimation {
   0% {
     animation-timing-function: ease-in;

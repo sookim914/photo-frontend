@@ -3,40 +3,34 @@
 const store = require('../store')
 // const events = require('./events')
 const showImagesTemplate = require('../templates/imageUpload-listing.handlebars')
-const showOtherUserImagesTemplate = require('../templates/otherUserImages-listing.handlebars')
+
 // UPON SUCCESSFUL IMAGE UPLOAD
 const onUploadSuccess = function (data) {
   $('.display').html('<img class="img-fluid" src="' + data.fileUpload.url + '">')
   $('#create-files-message').text('File has successfully uploaded')
   store.file = data.fileUpload
-  $('.get-files-message').text('')
-  $('form').trigger('reset')
   // onGetUploadsSuccess()
   // console.log(store.file)
 }
 
 // UPON SUCCESSFUL GET IMAGES
-
 const onGetUploadsSuccess = function (data) { // added data as a parameter
   const myImages = data.fileUploads.filter(function (image) {
-    return image.owner._id === store.user._id
+    return image.user === store.user._id
   })
-  if (myImages.length === 0) {
-    $('.get-files-message').html('please <a data-toggle="modal" data-target="#uploadModal" href="#">upload</a> some images, or view the gallery')
-  } else {
-    const showImagesHtml = showImagesTemplate({ images: myImages })
-    $('.get-files').html(showImagesHtml)
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
-  }
+  $('#get-files-message').text('Take a look around!')
+  const showImagesHtml = showImagesTemplate({ images: myImages })
+  $('.get-files').html(showImagesHtml)
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 }
 
 const onGetBrowseSuccess = function (data) { // added data as a parameter
   const myImages = data.fileUploads.filter(function (image) {
-    return image.owner._id !== store.user._id
+    return image.user !== store.user._id
   })
-  const showImagesHtml = showOtherUserImagesTemplate({ images: myImages })
+  const showImagesHtml = showImagesTemplate({ images: myImages })
   $('.get-files').html(showImagesHtml)
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()

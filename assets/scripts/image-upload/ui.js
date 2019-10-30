@@ -19,7 +19,7 @@ const onUploadSuccess = function (data) {
 
 const onGetUploadsSuccess = function (data) { // added data as a parameter
   const myImages = data.fileUploads.filter(function (image) {
-    return image.user === store.user._id
+    return image.owner._id === store.user._id
   })
   if (myImages.length === 0) {
     $('.get-files-message').html('please <a data-toggle="modal" data-target="#uploadModal" href="#">upload</a> some images, or view the gallery')
@@ -34,7 +34,7 @@ const onGetUploadsSuccess = function (data) { // added data as a parameter
 
 const onGetBrowseSuccess = function (data) { // added data as a parameter
   const myImages = data.fileUploads.filter(function (image) {
-    return image.user !== store.user._id
+    return image.owner._id !== store.user._id
   })
   const showImagesHtml = showOtherUserImagesTemplate({ images: myImages })
   $('.get-files').html(showImagesHtml)
